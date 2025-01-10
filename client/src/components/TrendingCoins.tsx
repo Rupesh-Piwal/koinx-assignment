@@ -11,7 +11,7 @@ export const TrendingCoins = () => {
     const interval = setInterval(fetchTrending, 300000);
     return () => clearInterval(interval);
   }, [fetchTrending]);
-  console.log(trending);
+
 
   return (
     <Card>
