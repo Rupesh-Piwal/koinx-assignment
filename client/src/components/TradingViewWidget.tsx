@@ -1,39 +1,78 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect, useRef, memo } from "react";
 
-const TradingViewWidget = () => {
+function TradingViewWidget() {
+  const container = useRef<HTMLDivElement | null>(null); // Correct typing of useRef
+
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/tv.js";
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
+    script.type = "text/javascript";
     script.async = true;
-    document.body.appendChild(script);
 
-    script.onload = () => {
-      if (typeof TradingView !== "undefined") {
-        new TradingView.widget({
-          width: "100%",
-          height: "100%",
-          symbol: "BITSTAMP:BTCUSD",
-          interval: "D",
-          timezone: "Etc/UTC",
-          theme: "dark",
-          style: "1",
-          locale: "en",
-          toolbar_bg: "#f1f3f6",
-          enable_publishing: false,
-          hide_side_toolbar: false,
-          allow_symbol_change: true,
-          container_id: "tradingview_chart",
-        });
-      }
+    
+    const widgetConfig = {
+      symbols: [["BITSTAMP:BTCUSD|1D"]],
+      chartOnly: true,
+      width: "100%",
+      height: "100%",
+      locale: "en",
+      colorTheme: "dark",
+      autosize: true,
+      showVolume: false,
+      showMA: false,
+      hideDateRanges: false,
+      hideMarketStatus: false,
+      hideSymbolLogo: false,
+      scalePosition: "left",
+      scaleMode: "Normal",
+      fontFamily: "Arial, sans-serif",
+      fontSize: "10",
+      noTimeScale: false,
+      valuesTracking: "1",
+      changeMode: "price-and-percent",
+      chartType: "area",
+      maLineColor: "#2962FF",
+      maLineWidth: 1,
+      maLength: 9,
+      headerFontSize: "medium",
+      fontColor: "rgba(11, 20, 38, 1)",
+      backgroundColor: "rgba(234, 238, 244, 1)",
+      lineWidth: 1,
+      lineType: 0,
+      dateRanges: [
+        "1d|1",
+        "5d|5",
+        "1m|30",
+        "3m|60",
+        "6m|120",
+        "12m|1D",
+        "all|1M",
+      ],
+      lineColor: "rgba(0, 82, 254, 1)",
+      topColor: "rgba(16, 83, 210, 0.16)",
+      bottomColor: "rgba(255, 255, 255, 1)",
     };
 
-    return () => {
-      document.body.removeChild(script);
-    };
+    script.innerHTML = JSON.stringify(widgetConfig); 
+    if (container.current) {
+      container.current.appendChild(script); 
+    }
   }, []);
 
-  return <div id="tradingview_chart" className="h-full" />;
-};
+  return (
+    <div className="tradingview-widget-container" ref={container}>
+      <div className="tradingview-widget-container__widget"></div>
+      <div className="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/"
+          rel="noopener nofollow"
+          target="_blank"
+        ></a>
+      </div>
+    </div>
+  );
+}
 
-export default TradingViewWidget;
+export default memo(TradingViewWidget);

@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 import { usePriceStore } from "@/store/usePriceStore";
-import TradingViewWidget from "./TradingViewWidget";
 import { Badge } from "./ui/badge";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import Image from "next/image";
+import TradingViewWidget from "./TradingViewWidget";
 
 const BitcoinTracker = () => {
   const { price, loading, error, fetchPrice } = usePriceStore();
@@ -82,7 +82,7 @@ const BitcoinTracker = () => {
         )}
 
         {/* TradingView Chart */}
-        <div className="md:col-span-2 h-[600px]">
+        <div className="md:col-span-2 h-[600px] rounded-[20px]">
           <TradingViewWidget />
         </div>
       </div>
