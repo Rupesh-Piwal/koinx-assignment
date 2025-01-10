@@ -8,7 +8,7 @@ import { MoveRight } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="mx-[20px] space-y-7">
+    <div className="px-[20px] space-y-7 bg-[#ffffff]">
       <div className="flex flex-col items-start gap-2.5">
         <h2 className="text-[24px] font-semibold">About Bitcoin</h2>
         <h3 className="text-[18px] font-bold">What is Bitcoin?</h3>

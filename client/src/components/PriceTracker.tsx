@@ -19,12 +19,12 @@ const BitcoinTracker = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 bg-[#ffffff] mb-[20px]">
       <div className="grid gap-4 md:grid-cols-2">
         {loading ? (
           <div className="text-center py-4">Loading...</div>
         ) : price ? (
-          <div className="w-full border p-4 rounded shadow-md bg-[#ffffff] flex flex-col items-start gap-6">
+          <div className="w-full  p-4 rounded bg-[#ffffff] flex flex-col items-start gap-6">
             <div className="flex flex-row items-start gap-2">
               <Image
                 src={price.image.thumb}

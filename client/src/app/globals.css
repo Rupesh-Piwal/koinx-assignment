@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body {
+  @apply bg-[#EFF2F5];
+}
 
 @layer base {
   :root {

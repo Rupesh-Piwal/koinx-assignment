@@ -16,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="flex items-center justify-between px-4 md:px-[60px] py-[12px] bg-white shadow-lg">
+    <div className="flex items-center justify-between px-4 md:px-[60px] py-[12px] bg-white shadow-md">
       <div>
         <Image src={logo} alt="koinx-logo" />
       </div>

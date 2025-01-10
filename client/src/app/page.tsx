@@ -5,9 +5,9 @@ import { TrendingCoins } from "@/components/TrendingCoins";
 
 export default function Home() {
   return (
-    <div>
+    <div className="min-h-screen bg-[#EFF2F5]">
       <section className="h-screen grid grid-cols-1 md:grid-cols-6 p-10 mx-auto gap-16">
-        <div className=" col-span-4 rounded-[8px] flex flex-col">
+        <div className=" col-span-4  flex flex-col">
           <BitcoinTracker />
           <About />
         </div>
