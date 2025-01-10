@@ -12,9 +12,6 @@ const BitcoinTracker = () => {
 
   useEffect(() => {
     fetchPrice();
-    // Uncomment if you want to refresh every 30 seconds
-    // const interval = setInterval(fetchPrice, 30000);
-    // return () => clearInterval(interval);
   }, [fetchPrice]);
 
   if (error) {
@@ -81,7 +78,6 @@ const BitcoinTracker = () => {
           <div>No price data available.</div>
         )}
 
-        {/* TradingView Chart */}
         <div className="md:col-span-2 h-[600px] rounded-[20px]">
           <TradingViewWidget />
         </div>
