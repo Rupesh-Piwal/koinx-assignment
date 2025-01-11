@@ -29,33 +29,48 @@ interface TrendingCoin {
   };
 }
 
-export interface TrendingCoinData {
+interface TrendingCoinData {
   price_change_percentage_24h: {
     usd: number;
   };
   price: string;
   sparkline: string;
 }
+
+export interface CoinListItem {
+  id: string;
+  symbol: string;
+  thumb: string;
+  price_change: number;
+  price: string;
+  sparkline: string;
+}
+
 interface PriceStore {
   price: BitcoinPrice | null;
   trending: TrendingCoin[];
+  trendingCoins: CoinListItem[];
+  likeCoins: CoinListItem[];
   loading: boolean;
   trendingLoading: boolean;
   error: string | null;
   fetchPrice: () => Promise<void>;
   fetchTrending: () => Promise<void>;
+  formatTrendingData: () => void;
 }
 
-export const usePriceStore = create<PriceStore>((set) => ({
+export const usePriceStore = create<PriceStore>((set, get) => ({
   price: null,
   trending: [],
+  trendingCoins: [],
+  likeCoins: [],
   loading: false,
   trendingLoading: false,
   error: null,
+
   fetchPrice: async () => {
     try {
       set({ loading: true, error: null });
-
       const response = await fetch(
         "https://api.coingecko.com/api/v3/coins/bitcoin?localization=false",
         {
@@ -73,7 +88,6 @@ export const usePriceStore = create<PriceStore>((set) => ({
       }
 
       const data = await response.json();
-      console.log("API Response:", data);
 
       const inrPrice = data.market_data.current_price.inr;
       const usdPrice = data.market_data.current_price.usd;
@@ -81,11 +95,6 @@ export const usePriceStore = create<PriceStore>((set) => ({
         data.market_data.price_change_percentage_24h_in_currency.inr;
       const usdChange =
         data.market_data.price_change_percentage_24h_in_currency.usd;
-
-      console.log("Current INR Price:", inrPrice);
-      console.log("Current USD Price:", usdPrice);
-      console.log("INR 24h Change:", inrChange);
-      console.log("USD 24h Change:", usdChange);
 
       set({
         price: {
@@ -108,7 +117,14 @@ export const usePriceStore = create<PriceStore>((set) => ({
     try {
       set({ trendingLoading: true, error: null });
       const response = await fetch(
-        "https://api.coingecko.com/api/v3/search/trending"
+        "https://api.coingecko.com/api/v3/search/trending",
+        {
+          headers: {
+            accept: "application/json",
+            "x-cg-demo-api-key":
+              process.env.NEXT_PUBLIC_COINGECKO_API_KEY || "",
+          },
+        }
       );
 
       if (!response.ok) {
@@ -116,12 +132,34 @@ export const usePriceStore = create<PriceStore>((set) => ({
       }
 
       const data = await response.json();
+      const trendingData: TrendingCoin[] = data.coins.slice(0, 6); // Fetch 6 coins for coin list
 
-      console.log(data);
+      set({
+        trending: trendingData,
+        trendingLoading: false,
+      });
 
-      set({ trending: data.coins.slice(0, 3), trendingLoading: false });
+      get().formatTrendingData();
     } catch (error) {
       set({ error: (error as Error).message, trendingLoading: false });
     }
+  },
+
+  formatTrendingData: () => {
+    const { trending } = get();
+
+    const formattedCoins: CoinListItem[] = trending.map((coin) => ({
+      id: coin.item.id,
+      symbol: coin.item.symbol.toUpperCase(),
+      thumb: coin.item.thumb,
+      price_change: coin.item.data?.price_change_percentage_24h.usd || 0,
+      price: coin.item.data?.price || "0",
+      sparkline: coin.item.data?.sparkline || "",
+    }));
+
+    set({
+      trendingCoins: formattedCoins.slice(0, 3), // Use only 3 coins for trending
+      likeCoins: formattedCoins, // Use all 6 coins for coin list
+    });
   },
 }));
