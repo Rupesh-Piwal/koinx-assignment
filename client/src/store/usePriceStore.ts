@@ -132,7 +132,7 @@ export const usePriceStore = create<PriceStore>((set, get) => ({
       }
 
       const data = await response.json();
-      const trendingData: TrendingCoin[] = data.coins.slice(0, 6); // Fetch 6 coins for coin list
+      const trendingData: TrendingCoin[] = data.coins.slice(0, 12); 
 
       set({
         trending: trendingData,
@@ -158,8 +158,8 @@ export const usePriceStore = create<PriceStore>((set, get) => ({
     }));
 
     set({
-      trendingCoins: formattedCoins.slice(0, 3), // Use only 3 coins for trending
-      likeCoins: formattedCoins, // Use all 6 coins for coin list
+      trendingCoins: formattedCoins.slice(0, 3), 
+      likeCoins: formattedCoins, 
     });
   },
 }));

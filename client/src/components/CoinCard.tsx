@@ -36,7 +36,7 @@ const CoinCard: React.FC<CoinCardProps> = ({ coin }) => (
           alt="sparkline"
           width={150}
           height={150}
-          style={{ width: "auto", height: "auto" }}
+          style={{ width: "225px", height: "225px" }}
         />
       )}
     </div>
