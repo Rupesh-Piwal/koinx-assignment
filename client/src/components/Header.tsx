@@ -3,8 +3,9 @@ import Image from "next/image";
 import React, { useState } from "react";
 import logo from "../public/logo.png";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,10 +19,11 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between px-4 md:px-[60px] py-[12px] bg-white shadow-md">
       <div>
-        <Image src={logo} alt="koinx-logo" />
+        <Link href="#">
+          <Image src={logo} alt="koinx-logo" />
+        </Link>
       </div>
 
-      {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-10">
         <ul className="flex items-center gap-8">
           {menuItems.map((item) => (
@@ -35,7 +37,6 @@ const Header = () => {
         </Button>
       </div>
 
-      {/* Mobile Menu */}
       <div className="md:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
