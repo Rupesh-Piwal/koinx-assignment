@@ -2,6 +2,8 @@
 import { useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { usePriceStore } from "@/store/usePriceStore";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { Badge } from "./ui/badge";
 
 export const TrendingCoins = () => {
   const { trending, trendingLoading, error, fetchTrending } = usePriceStore();
@@ -35,7 +37,38 @@ export const TrendingCoins = () => {
                   <h3 className="font-medium">{coin.item.name}</h3>
                 </div>
                 <div className="text-sm">
-                  {coin.item.data?.price_change_percentage_24h.usd.toFixed(2)}%
+                  {coin.item.data?.price_change_percentage_24h.usd !==
+                  undefined ? (
+                    coin.item.data?.price_change_percentage_24h.usd > 0 ? (
+                      <Badge
+                        className="text-green-600 font-medium text-[16px]"
+                        variant="secondary"
+                      >
+                        <IoMdArrowDropup size={20} />
+                        {coin.item.data?.price_change_percentage_24h.usd.toFixed(
+                          2
+                        )}
+                        %
+                      </Badge>
+                    ) : (
+                      <Badge
+                        className="text-red-600 font-medium text-[16px]"
+                        variant="secondary"
+                      >
+                        <IoMdArrowDropdown size={20} />
+                        {Math.abs(
+                          parseFloat(
+                            coin?.item?.data?.price_change_percentage_24h?.usd?.toFixed(
+                              2
+                            ) || "0"
+                          )
+                        )}
+                        %
+                      </Badge>
+                    )
+                  ) : (
+                    "Data not available"
+                  )}
                 </div>
               </div>
             ))}

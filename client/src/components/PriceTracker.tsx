@@ -19,27 +19,30 @@ const BitcoinTracker = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 bg-[#ffffff] mb-[20px]">
+    <div className="container mx-auto p-4 bg-white mb-5">
       <div className="grid gap-4 md:grid-cols-2">
         {loading ? (
           <div className="text-center py-4">Loading...</div>
         ) : price ? (
-          <div className="w-full  p-4 rounded bg-[#ffffff] flex flex-col items-start gap-6">
-            <div className="flex flex-row items-start gap-2">
+          <div className="w-full p-4 rounded bg-white flex flex-col items-start gap-6">
+            <div className="flex items-center gap-2">
               <Image
                 src={price.image.thumb}
                 alt="Bitcoin Icon"
                 width={35}
                 height={35}
               />
-              <h2 className="text-[#0B1426] text-[24px] md:text-[24px] font-semibold">
+              <h2 className="text-[#0B1426] text-[24px] font-semibold">
                 {price.name}
-                <span className="text-[#5D667B] text-[14px] md:text-[16px] mx-1">
+                <span className="text-[#5D667B] text-[14px] mx-1">
                   {price.symbol.toUpperCase()}
                 </span>
               </h2>
+              <div className="text-[16px] font-medium text-white bg-[#768396] px-2 py-1 rounded-md">
+                Rank #1
+              </div>
             </div>
-            <div className="flex flex-row items-start gap-8">
+            <div className="flex items-center gap-8">
               <div>
                 <p className="text-[28px] font-semibold text-[#0B1426]">
                   ${price.usd.toLocaleString()}
@@ -48,7 +51,7 @@ const BitcoinTracker = () => {
                   ₹{price.inr.toLocaleString()}
                 </p>
               </div>
-              <div>
+              <div className="mb-[14px]">
                 {price.usd_24h_change !== undefined ? (
                   price.usd_24h_change > 0 ? (
                     <Badge
@@ -71,14 +74,14 @@ const BitcoinTracker = () => {
                   "Data not available"
                 )}
               </div>
-              <div>(24)</div>
+              <div className="text-[#768396] text-[14px] font-medium mb-[12px]">(24)</div>
             </div>
           </div>
         ) : (
           <div>No price data available.</div>
         )}
 
-        <div className="md:col-span-2 h-[600px] rounded-[20px]">
+        <div className="md:col-span-2 h-[600px] rounded-lg overflow-hidden">
           <TradingViewWidget />
         </div>
       </div>
