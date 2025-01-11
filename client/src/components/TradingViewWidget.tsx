@@ -11,7 +11,6 @@ function TradingViewWidget() {
     script.type = "text/javascript";
     script.async = true;
 
-    
     const widgetConfig = {
       symbols: [["BITSTAMP:BTCUSD|1D"]],
       chartOnly: true,
@@ -41,23 +40,15 @@ function TradingViewWidget() {
       backgroundColor: "rgba(234, 238, 244, 1)",
       lineWidth: 1,
       lineType: 0,
-      dateRanges: [
-        "1d|1",
-        "5d|5",
-        "1m|30",
-        "3m|60",
-        "6m|120",
-        "12m|1D",
-        "all|1M",
-      ],
+      dateRanges: ["5d|5", "1m|30", "3m|60", "6m|120", "12m|1D", "all|1M"],
       lineColor: "rgba(0, 82, 254, 1)",
       topColor: "rgba(16, 83, 210, 0.16)",
       bottomColor: "rgba(255, 255, 255, 1)",
     };
 
-    script.innerHTML = JSON.stringify(widgetConfig); 
+    script.innerHTML = JSON.stringify(widgetConfig);
     if (container.current) {
-      container.current.appendChild(script); 
+      container.current.appendChild(script);
     }
   }, []);
 
