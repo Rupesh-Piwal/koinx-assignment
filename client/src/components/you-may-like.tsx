@@ -3,8 +3,7 @@ import { usePriceStore } from "../store/usePriceStore";
 import CoinScroller from "./CoinScroller";
 
 const YouMayLike: React.FC = () => {
-  const { trendingCoins, likeCoins, trendingLoading, error, fetchTrending } =
-    usePriceStore();
+  const {likeCoins, trendingLoading, error, fetchTrending } = usePriceStore();
 
   useEffect(() => {
     fetchTrending();
