@@ -8,11 +8,11 @@ import { MoveRight } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="px-[20px] space-y-7 bg-[#ffffff]">
+    <div className="px-[20px] space-y-7 bg-[#ffffff] py-[30px]">
       <div className="flex flex-col items-start gap-2.5">
         <h2 className="text-[24px] font-semibold">About Bitcoin</h2>
-        <h3 className="text-[18px] font-bold">What is Bitcoin?</h3>
-        <p className="text-[16px] font-medium">
+        <h3 className="text-[18px] font-semibold">What is Bitcoin?</h3>
+        <p className="text-[16px] ">
           Bitcoin’s price today is US$16,951.82, with a 24-hour trading volume
           of $19.14 B. BTC is +0.36% in the last <br /> 24 hours. It is
           currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40%
@@ -22,8 +22,10 @@ const About = () => {
       </div>
       <Separator className="text-[#C9CFDD]/60" />
       <div>
-        <h3 className="text-[18px] font-bold">Lorem ipsum dolor sit amet</h3>
-        <p className="text-[16px] font-medium">
+        <h3 className="text-[18px] font-semibold">
+          Lorem ipsum dolor sit amet
+        </h3>
+        <p className="text-[16px] ">
           Lorem ipsum dolor sit amet consectetur. Aliquam placerat sit lobortis
           tristique pharetra. Diam id et lectus <br /> urna et tellus aliquam
           dictum at. Viverra diam suspendisse enim facilisi diam ut sed. Quam

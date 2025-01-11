@@ -5,29 +5,6 @@ import React from "react";
 const Performance = () => {
   return (
     <div>
-      <div className="mt-8 mb-5">
-        <div className="flex space-x-6 border-b border-gray-200 dark:border-gray-700">
-          {[
-            { href: "#overview", label: "Overview", isActive: true },
-            { href: "#fundamentals", label: "Fundamentals" },
-            { href: "#news-insights", label: "News Insights" },
-            { href: "#sentiments", label: "Sentiments" },
-            { href: "#team", label: "Team" },
-            { href: "#technicals", label: "Technicals" },
-            { href: "#tokenomics", label: "Tokenomics" },
-          ].map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`nav-link px-2 py-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
-                link.isActive ? "active text-blue-600 dark:text-blue-400" : ""
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
       <section className="bg-white dark:bg-gray-800 rounded-md gap-8">
         <div className="p-5 flex flex-col gap-8 w-full">
           <h1 className="font-semibold text-2xl">Performance</h1>
