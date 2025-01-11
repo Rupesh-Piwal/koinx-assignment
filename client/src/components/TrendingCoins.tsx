@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { usePriceStore } from "@/store/usePriceStore";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { Badge } from "./ui/badge";
+import Image from "next/image";
 
 export const TrendingCoins = () => {
   const { trendingCoins, trendingLoading, error, fetchTrending } =
@@ -23,10 +24,14 @@ export const TrendingCoins = () => {
           <div className="space-y-5">
             {trendingCoins.map((coin) => (
               <div key={coin.id} className="flex items-center space-x-4">
-                <img
+                <Image
                   src={coin.thumb}
                   alt={coin.symbol}
-                  className="w-8 h-8 rounded-full"
+                  className="rounded-full"
+                  width={32}
+                  height={32}
+                  quality={100} 
+                  priority={true} 
                 />
                 <div className="flex-1">
                   <h3 className="font-medium">{coin.symbol}</h3>

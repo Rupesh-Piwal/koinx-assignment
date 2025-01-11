@@ -1,4 +1,4 @@
-// components/ScrollButton.tsx
+
 interface ScrollButtonProps {
   direction: "left" | "right";
   onClick: () => void;

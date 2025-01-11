@@ -1,13 +1,15 @@
+"use client";
+
 import { useEffect } from "react";
 import { usePriceStore } from "../store/usePriceStore";
 import CoinScroller from "./CoinScroller";
 
 const YouMayLike: React.FC = () => {
-  const {likeCoins, trendingLoading, error, fetchTrending } = usePriceStore();
+  const { likeCoins, trendingLoading, error, fetchTrending } = usePriceStore();
 
   useEffect(() => {
     fetchTrending();
-  }, []);
+  }, [fetchTrending]); 
 
   if (trendingLoading) return <div className="p-10">Loading...</div>;
   if (error) return <div className="p-10 text-red-500">{error}</div>;
