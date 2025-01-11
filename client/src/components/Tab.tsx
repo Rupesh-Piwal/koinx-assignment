@@ -1,6 +1,11 @@
 import React from "react";
 
-const Tab = ({ activeTab, setActiveTab }: any) => {
+interface TabProps {
+  activeTab: string;
+  setActiveTab: (tabKey: string) => void;
+}
+
+const Tab: React.FC<TabProps> = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { key: "overview", label: "Overview" },
     { key: "fundamentals", label: "Fundamentals" },
