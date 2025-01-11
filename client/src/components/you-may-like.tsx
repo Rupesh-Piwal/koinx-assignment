@@ -14,7 +14,7 @@ const YouMayLike: React.FC = () => {
   if (error) return <div className="p-10 text-red-500">{error}</div>;
 
   return (
-    <div className="p-10 pt-20 pb-20 w-full flex flex-col gap-8">
+    <div className="bg-[#ffffff] p-10 pt-20 pb-20 w-full flex flex-col gap-8">
       <CoinScroller
         title="You May Also Like"
         coins={likeCoins}
