@@ -16,8 +16,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#EFF2F5] flex flex-col">
-      <section className="grid grid-cols-1 md:grid-cols-6 p-10 mx-auto gap-16">
-        <div className="col-span-4 flex flex-col">
+      <section className="grid grid-cols-1 md:grid-cols-6 p-4 sm:p-10 gap-8 sm:gap-16">
+        <div className="col-span-1 sm:col-span-4 flex flex-col">
           <BitcoinTracker />
           <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
           {activeTab === "about" && <About />}
@@ -28,7 +28,7 @@ export default function Home() {
           <Tokenomics />
           <TeamCard />
         </div>
-        <div className="col-span-2 mx-auto">
+        <div className="col-span-1 sm:col-span-2 mx-auto sm:ml-10 sm:mt-0 mt-8">
           <GetStarted />
           <TrendingCoins />
         </div>

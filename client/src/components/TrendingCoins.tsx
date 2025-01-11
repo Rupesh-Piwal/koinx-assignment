@@ -1,7 +1,4 @@
-"use client";
-
 import { useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { usePriceStore } from "@/store/usePriceStore";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { Badge } from "./ui/badge";
@@ -15,13 +12,9 @@ export const TrendingCoins = () => {
   }, [fetchTrending]);
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-[24px] font-semibold">
-          Trending Coins (24h)
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div className="border p-4 rounded-lg shadow-lg">
+      <div className="text-[24px] font-semibold mb-4">Trending Coins (24h)</div>
+      <div>
         {trendingLoading ? (
           <div className="text-center py-4">Loading...</div>
         ) : error ? (
@@ -42,7 +35,7 @@ export const TrendingCoins = () => {
                   {coin.price_change !== undefined ? (
                     coin.price_change > 0 ? (
                       <Badge
-                        className="text-green-600 font-medium text-[16px]"
+                        className="text-green-600 font-medium text-[16px] bg-green-50"
                         variant="secondary"
                       >
                         <IoMdArrowDropup size={20} />
@@ -50,7 +43,7 @@ export const TrendingCoins = () => {
                       </Badge>
                     ) : (
                       <Badge
-                        className="text-red-600 font-medium text-[16px]"
+                        className="text-red-600 font-medium text-[16px] bg-red-50"
                         variant="secondary"
                       >
                         <IoMdArrowDropdown size={20} />
@@ -65,7 +58,7 @@ export const TrendingCoins = () => {
             ))}
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };

@@ -53,16 +53,16 @@ const About = () => {
         <h2 className="text-[24px] font-semibold mb-3">
           Already Holding Bitcoin?
         </h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="flex flex-row items-center pl-4 gap-4 w-[388px] h-[151px] bg-gradient-to-tl from-[#79F1A4] to-[#0E5CAD] rounded-[6.65px]">
+        <div className="grid  grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-row items-center px-4 gap-4 md:w-[388px] h-[151px] bg-gradient-to-tl from-[#79F1A4] to-[#0E5CAD] rounded-[6.65px]">
             <div>
               <Image src={profits} alt="calculate-profits" />
             </div>
             <div className="flex flex-col items-start gap-4">
-              <p className="text-[20px] font-bold text-[#ffffff]">
+              <p className="md:text-[20px] font-bold text-[#ffffff]">
                 Calculate your <br /> Profits
               </p>
-              <Button className="text-[#0F1629] bg-[#ffffff] w-[132px] h-[32px] hover:bg-white hover:text-[#000000]">
+              <Button className="text-[#0F1629] bg-[#ffffff] md:w-[132px] md:h-[32px] hover:bg-white hover:text-[#000000]">
                 Check Now
                 <span>
                   <MoveRight />
@@ -70,16 +70,16 @@ const About = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-row items-center pl-4 gap-4 w-[388px] h-[151px] bg-gradient-to-tl from-[#FF9865] to-[#EF3031] rounded-[6.65px]">
+          <div className="flex flex-row items-center px-4 gap-4 md:w-[388px] h-[151px] bg-gradient-to-tl from-[#FF9865] to-[#EF3031] rounded-[6.65px]">
             <div>
               <Image src={liability} alt="calculate-profits" />
             </div>
             <div className="flex flex-col items-start gap-4">
-              <p className="text-[20px] font-bold text-[#ffffff]">
+              <p className="md:text-[20px] font-bold text-[#ffffff]">
                 Calculate your tax
                 <br /> liability
               </p>
-              <Button className="text-[#0F1629] bg-[#ffffff] w-[132px] h-[32px] hover:bg-white hover:text-[#000000]">
+              <Button className="text-[#0F1629] bg-[#ffffff] md:w-[132px] md:h-[32px] hover:bg-white hover:text-[#000000]">
                 Check Now
                 <span>
                   <MoveRight />

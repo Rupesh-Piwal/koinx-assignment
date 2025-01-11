@@ -5,11 +5,11 @@ import logo from "@/public/get-started.png";
 import Image from "next/image";
 const GetStarted = () => {
   return (
-    <div className=" relative text-center rounded-[16px] bg-[#0052FE] flex flex-col w-[300px] h-[384px]  md:w-[426px] md:h-[515px] items-center gap-6 md:py-8 mb-8">
+    <div className=" relative text-center rounded-[16px] bg-[#0052FE] flex flex-col w-full  md:w-[426px] md:h-[515px] items-center gap-6 py-4 md:py-8 mb-8 px-10">
       <h2 className="text-[22px] md:text-[24px] text-[#ffffff]">
         Get Started with KoinX <br /> for FREE
       </h2>
-      <p className="text-[14px] text-[#F2F2F2]">
+      <p className="text-[12px] md:text-[14px] text-[#F2F2F2]">
         With our range of features that you can equip for <br /> free, KoinX
         allows you to be more educated <br /> and aware of your tax reports.
       </p>

@@ -55,7 +55,7 @@ const BitcoinTracker = () => {
                 {price.usd_24h_change !== undefined ? (
                   price.usd_24h_change > 0 ? (
                     <Badge
-                      className="text-green-600 font-medium text-[16px]"
+                      className="text-green-600 font-medium text-[16px] bg-green-50"
                       variant="secondary"
                     >
                       <IoMdArrowDropup size={20} />
@@ -63,7 +63,7 @@ const BitcoinTracker = () => {
                     </Badge>
                   ) : (
                     <Badge
-                      className="text-red-600 font-medium text-[16px]"
+                      className="text-red-600 font-medium text-[16px] bg-red-50"
                       variant="secondary"
                     >
                       <IoMdArrowDropdown size={20} />
@@ -74,7 +74,9 @@ const BitcoinTracker = () => {
                   "Data not available"
                 )}
               </div>
-              <div className="text-[#768396] text-[14px] font-medium mb-[12px]">(24)</div>
+              <div className="text-[#768396] text-[14px] font-medium mb-[12px]">
+                (24)
+              </div>
             </div>
           </div>
         ) : (

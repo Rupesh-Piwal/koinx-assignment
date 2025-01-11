@@ -13,7 +13,7 @@ const Tab = ({ activeTab, setActiveTab }: any) => {
 
   return (
     <div className="mt-8 mb-5">
-      <div className="flex space-x-6 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex flex-wrap sm:flex-nowrap space-x-6 border-b border-gray-200 dark:border-gray-700">
         {tabs.map((tab) => (
           <button
             key={tab.key}

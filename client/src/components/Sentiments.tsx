@@ -34,7 +34,7 @@ const Sentiments = () => {
                   Lorem ipsum dolor sit amet consectetur. Dui vel quis dignissim
                   mattis enim tincidunt.
                 </div>
-                <div className="text-sm font-normal text-[#3E5765] whitespace-normal mt-2">
+                <div className="text-xs font-normal text-[#3E5765] whitespace-normal mt-2">
                   Lorem ipsum dolor sit amet consectetur. Ac phasellus risus est
                   faucibus metus quis. Amet sapien quam viverra adipiscing
                   condimentum. Ac consectetur et pretium in a bibendum in. Sed
@@ -76,8 +76,8 @@ const Sentiments = () => {
                   mattis enim tincidunt.
                 </div>
                 <div className="relative">
-                  <div className="absolute top-1/2 left-full transform -translate-y-1/2 -ml-8 bg-white p-4 rounded-full cursor-pointer">
-                    <FaAngleRight className="text-[#757779]" />
+                  <div className=" hidden lg:block absolute top-1/2 left-full transform -translate-y-1/2 -ml-8 bg-white p-4 rounded-full  cursor-pointer">
+                    <FaAngleRight className=" text-[#757779]" />
                   </div>
                 </div>
                 <div className="lg:text-sm text-xs font-normal text-[#3E5765] whitespace-normal mt-2 over">
@@ -90,7 +90,6 @@ const Sentiments = () => {
             </div>
           </div>
         </div>
-        {/* {-------} */}
 
         <div className="mb-6">
           <div className="flex items-center py-4 mt-6">
