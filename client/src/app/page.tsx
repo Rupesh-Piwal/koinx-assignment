@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import About from "@/components/About";
 import GetStarted from "@/components/GetStarted";
 import Performance from "@/components/Performance";
 import BitcoinTracker from "@/components/PriceTracker";
 import Tab from "@/components/Tab";
 import Team from "@/components/TeamCard";
+import Tokenomics from "@/components/Tokenomics";
 import { TrendingCoins } from "@/components/TrendingCoins";
 import { useState } from "react";
-
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("performance");
@@ -22,6 +22,7 @@ export default function Home() {
           {activeTab === "team" && <Team />}
           <Performance />
           <About />
+          <Tokenomics />
           <Team />
         </div>
         <div className="col-span-2 mx-auto">
