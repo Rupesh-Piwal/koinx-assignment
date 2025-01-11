@@ -50,13 +50,6 @@ const Performance = () => {
             <h1 className="font-semibold text-lg text-[#44475B]">
               Fundamentals
             </h1>
-            <Image
-              src="/question.svg"
-              alt="question"
-              width={20}
-              height={20}
-              className="cursor-pointer"
-            />
           </div>
           <div className="flex justify-between">
             <div className="w-[45%] flex flex-col gap-4">

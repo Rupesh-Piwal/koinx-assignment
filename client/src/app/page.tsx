@@ -19,13 +19,10 @@ export default function Home() {
         <div className=" col-span-4  flex flex-col">
           <BitcoinTracker />
           <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
-          {activeTab === "performance" && <Performance />}
           {activeTab === "about" && <About />}
           {activeTab === "team" && <Team />}
           <Performance />
-          <Sentiments
-           
-          />
+          <Sentiments />
           <About />
           <Tokenomics />
           <Team />

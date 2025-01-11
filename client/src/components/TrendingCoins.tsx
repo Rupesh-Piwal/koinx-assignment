@@ -8,10 +8,7 @@ export const TrendingCoins = () => {
 
   useEffect(() => {
     fetchTrending();
-    const interval = setInterval(fetchTrending, 300000);
-    return () => clearInterval(interval);
   }, [fetchTrending]);
-
 
   return (
     <Card>
@@ -38,7 +35,7 @@ export const TrendingCoins = () => {
                   <h3 className="font-medium">{coin.item.name}</h3>
                 </div>
                 <div className="text-sm">
-                  {coin.item.price_btc.toFixed(8)} BTC
+                  {coin.item.data?.price_change_percentage_24h.usd.toFixed(2)}%
                 </div>
               </div>
             ))}

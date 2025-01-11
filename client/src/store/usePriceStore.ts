@@ -15,14 +15,27 @@ interface BitcoinPrice {
 interface TrendingCoin {
   item: {
     id: string;
+    coin_id: number;
     name: string;
     symbol: string;
+    market_cap_rank: number;
     thumb: string;
+    small: string;
+    large: string;
+    slug: string;
     price_btc: number;
     score: number;
+    data?: TrendingCoinData;
   };
 }
 
+export interface TrendingCoinData {
+  price_change_percentage_24h: {
+    usd: number;
+  };
+  price: string;
+  sparkline: string;
+}
 interface PriceStore {
   price: BitcoinPrice | null;
   trending: TrendingCoin[];
@@ -103,6 +116,9 @@ export const usePriceStore = create<PriceStore>((set) => ({
       }
 
       const data = await response.json();
+
+      console.log(data);
+
       set({ trending: data.coins.slice(0, 3), trendingLoading: false });
     } catch (error) {
       set({ error: (error as Error).message, trendingLoading: false });
