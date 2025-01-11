@@ -3,6 +3,7 @@ import About from "@/components/About";
 import GetStarted from "@/components/GetStarted";
 import Performance from "@/components/Performance";
 import BitcoinTracker from "@/components/PriceTracker";
+import Sentiments from "@/components/Sentiments";
 import Tab from "@/components/Tab";
 import Team from "@/components/TeamCard";
 import Tokenomics from "@/components/Tokenomics";
@@ -11,6 +12,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("performance");
+
   return (
     <div className="min-h-screen bg-[#EFF2F5]">
       <section className="h-screen grid grid-cols-1 md:grid-cols-6 p-10 mx-auto gap-16">
@@ -21,6 +23,9 @@ export default function Home() {
           {activeTab === "about" && <About />}
           {activeTab === "team" && <Team />}
           <Performance />
+          <Sentiments
+           
+          />
           <About />
           <Tokenomics />
           <Team />
