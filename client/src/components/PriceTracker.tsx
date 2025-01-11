@@ -7,6 +7,28 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import Image from "next/image";
 import TradingViewWidget from "./TradingViewWidget";
 
+const BitcoinTrackerSkeleton = () => {
+  return (
+    <div className="w-full p-4 rounded bg-white flex flex-col items-start gap-6 animate-pulse">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-gray-200 rounded-full" />
+        <div className="h-8 w-32 bg-gray-200 rounded" />
+        <div className="h-6 w-16 bg-gray-200 rounded-md" />
+      </div>
+      <div className="flex items-center gap-8">
+        <div>
+          <div className="h-8 w-32 bg-gray-200 rounded mb-2" />
+          <div className="h-6 w-24 bg-gray-200 rounded" />
+        </div>
+        <div className="mb-[14px]">
+          <div className="h-8 w-24 bg-gray-200 rounded" />
+        </div>
+        <div className="h-4 w-8 bg-gray-200 rounded mb-[12px]" />
+      </div>
+    </div>
+  );
+};
+
 const BitcoinTracker = () => {
   const { price, loading, error, fetchPrice } = usePriceStore();
 
@@ -22,7 +44,7 @@ const BitcoinTracker = () => {
     <div className="container mx-auto p-4 bg-white mb-5">
       <div className="grid gap-4 md:grid-cols-2">
         {loading ? (
-          <div className="text-center py-4">Loading...</div>
+          <BitcoinTrackerSkeleton />
         ) : price ? (
           <div className="w-full p-4 rounded bg-white flex flex-col items-start gap-6">
             <div className="flex items-center gap-2">
